@@ -12,19 +12,57 @@ public class App {
 
         while (running) {
 
+            // 계산 할 값 입력
+            System.out.print("첫 번째 숫자를 입력하세요: ");
+            String input = sc.nextLine();
+
+            if (input.equals("exit")) {
+                running = false;
+                break;
+            }
+
+            int num1;
             try {
-                // 계산 할 값 입력
-                System.out.print("첫 번째 숫자를 입력하세요: ");
-                int num1 = sc.nextInt();
+                num1 = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("숫자 형식이  아닙니다. 다시 시도해주세요.");
+                continue;
+            }
 
-                System.out.print("두 번째 숫자를 입력하세요: ");
-                int num2 = sc.nextInt();
+            System.out.print("두 번째 숫자를 입력하세요: ");
+            input = sc.nextLine();
 
-                System.out.print("사칙연산 기호를 입력하세요(+, -, *, /)");
-                char operator = sc.next().charAt(0);
+            if (input.equals("exit")) {
+                running = false;
+                break;
+            }
 
+            int num2;
+            try {
+                num2 = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("숫자 형식이  아닙니다. 다시 시도해주세요.");
+                continue;
+            }
+
+            // 연산자
+            System.out.print("사칙연산 기호를 입력하세요(+, -, *, /)");
+            input = sc.nextLine();
+
+            if (input.equals("exit")) {
+                running = false;
+                break;
+            }
+
+            if (input.isEmpty()) {
+                System.out.println("연산자를 입력해주세요. 다시 시도합니다.");
+                continue;
+            }
+
+            char operator = input.charAt(0);
+
+            try {
                 int result = calculator.calculate(num1, num2, operator);
-
                 // 결과
                 System.out.println("결과: " + result);
                 // 지난결과
@@ -35,7 +73,10 @@ public class App {
 
             System.out.println("메뉴: 1.계속 계산 2.첫번째 결과 삭제 3.종료");
             System.out.print("번호 입력: ");
-            int choice = sc.nextInt();
+            int choice = Integer.parseInt(sc.nextLine());
+//            int choice = sc.nextInt();
+//            sc.nextLine();
+
             switch (choice) {
                 case 1:
                     break;
@@ -48,9 +89,10 @@ public class App {
                     break;
                 default:
                     System.out.println("선택 된 메뉴가 없습니다.");
-                    continue;
             }
         }
+
+        sc.close();
         System.out.println("계산기를 종료합니다.");
     }
 }
