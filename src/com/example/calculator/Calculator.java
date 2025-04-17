@@ -41,6 +41,7 @@ public class Calculator {
 
         results.add(result);
         return result;
+
     }
 
     // getter
