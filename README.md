@@ -1,10 +1,10 @@
 # 계산기 프로젝트 - Level 3 구현
 
-<details>
-<summary><b>📌 개요</b> (클릭하여 펼치기/접기)</summary>
+<b>📌 개요</b>
 
-이 문서는 Java를 사용한 콘솔 기반 계산기의 Level 3 구현에 대한 설명입니다. Level 3에서는 Enum, 제네릭, 람다 & 스트림과 같은 Java의 고급 기능을 적용하여 계산기를 고도화했습니다.
-</details>
+이 문서는 Java를 사용한 콘솔 기반 계산기의 Level 3 구현에 대한 설명입니다. <br>
+Level 3에서는 Enum, 제네릭, 람다 & 스트림과 같은 Java의 고급 기능을 적용하여 계산기를 고도화했습니다.
+
 
 <details>
 <summary><b>📋 요구사항</b> (클릭하여 펼치기/접기)</summary>
