@@ -27,7 +27,6 @@ public class ArithmeticCalculator<T extends Number> {
 
         double result = operator.apply(doubleNum1, doubleNum2);
 
-        System.out.println((int)result);
         // 소수점 이하가 0인지 확인하여 정수면 Integer로 저장
         if (result == (int)result) {
             this.results.add((int)result);
@@ -36,6 +35,12 @@ public class ArithmeticCalculator<T extends Number> {
             this.results.add(result);
             return result;
         }
+    }
+
+    //
+    public Number calculate(T num1, T num2, char symbol) {
+        OperatorType operator = OperatorType.fromSymbol(symbol);
+        return calculate(num1, num2, operator);
     }
 
     // 오래된 결과 삭제
