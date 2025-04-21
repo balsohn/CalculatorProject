@@ -16,12 +16,13 @@ public class ArithmeticApp {
 
         while (running) {
             System.out.println("\n[메뉴 선택]");
-            System.out.println("1: 계산하기 (Enum 사용)");
+            System.out.println("1: 계산하기 (Enum 추상 메서드 사용)");
             System.out.println("2: 저장된 모든 결과 보기");
             System.out.println("3: 특정 값보다 큰 결과 보기");
             System.out.println("4: 가장 오래된 결과 삭제");
             System.out.println("5: 모든 결과 삭제");
-            System.out.println("6: 종료");
+            System.out.println("6: 짝수 결과만 보기");
+            System.out.println("7: 종료");
             System.out.print("선택: ");
 
             // 사용자 입력처리
@@ -55,6 +56,17 @@ public class ArithmeticApp {
                     allResults(arithmeticCalculator);
                     break;
                 case 6:
+                    List<Number> evenResults = arithmeticCalculator.getEvenResults();
+                    if (evenResults.isEmpty()) {
+                        System.out.println("짝수 결과가 없습니다.");
+                    } else {
+                        System.out.println("---- 짝수 결과 ----");
+                        evenResults.forEach(System.out::println);
+                        System.out.println("-----------------");
+                    }
+
+                    break;
+                case 7:
                     running = false;
                     break;
                 default:
@@ -66,6 +78,7 @@ public class ArithmeticApp {
         System.out.println("계산기를 종료합니다.");
     }
 
+    // 계산 기능 수행
     public static void MenuOneCalculator(ArithmeticCalculator<Number> calculator, Scanner sc) {
         try {
             System.out.println("첫 번째 숫자를 입력하세요: ");
@@ -134,6 +147,5 @@ public class ArithmeticApp {
             System.out.println("오류: 잘못된 숫자 형식입니다.");
             sc.nextLine();
         }
-
     }
 }
