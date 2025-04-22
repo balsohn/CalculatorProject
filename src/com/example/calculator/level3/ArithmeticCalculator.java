@@ -37,12 +37,6 @@ public class ArithmeticCalculator<T extends Number> {
         }
     }
 
-    //
-    public Number calculate(T num1, T num2, char symbol) {
-        OperatorType operator = OperatorType.fromSymbol(symbol);
-        return calculate(num1, num2, operator);
-    }
-
     // 오래된 결과 삭제
     public void removeResult() {
         if (this.results.isEmpty()) {
