@@ -39,23 +39,29 @@ public class ArithmeticApp {
             // 선택에 따른 작업 수행
             switch (choice) {
                 case 1:
-                    MenuOneCalculator(arithmeticCalculator, sc);
+                    // 계산하기
+                    performCalculate(arithmeticCalculator, sc);
                     break;
                 case 2:
+                    // 모든결과 출력
                     allResults(arithmeticCalculator);
                     break;
                 case 3:
+                    // 특정값보다 큰값 출력
                     getGreaterResult(arithmeticCalculator, sc);
                     break;
                 case 4:
+                    // 제일 오래된 결과 삭제
                     arithmeticCalculator.removeResult();
                     allResults(arithmeticCalculator);
                     break;
                 case 5:
+                    // 모든 결과 삭제
                     arithmeticCalculator.clearResults();
                     allResults(arithmeticCalculator);
                     break;
                 case 6:
+                    // 짝수 결과 출력
                     List<Number> evenResults = arithmeticCalculator.getEvenResults();
                     if (evenResults.isEmpty()) {
                         System.out.println("짝수 결과가 없습니다.");
@@ -64,9 +70,9 @@ public class ArithmeticApp {
                         evenResults.forEach(System.out::println);
                         System.out.println("-----------------");
                     }
-
                     break;
                 case 7:
+                    // 계산기 종료
                     running = false;
                     break;
                 default:
@@ -79,7 +85,7 @@ public class ArithmeticApp {
     }
 
     // 계산 기능 수행
-    public static void MenuOneCalculator(ArithmeticCalculator<Number> calculator, Scanner sc) {
+    public static void performCalculate(ArithmeticCalculator<Number> calculator, Scanner sc) {
         try {
             System.out.println("첫 번째 숫자를 입력하세요: ");
             double num1 = sc.nextDouble();
